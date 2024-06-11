@@ -14,7 +14,7 @@ const double v0 = std::sqrt(mu / a); // km/s
 
 const double tau = 1.0; // Шаг по времени
 
-const double T = 80000; // Конечное время
+const double T = 80000; // Конечное время (со значением 3.1E7 с семинара -- не дождался окончания)
 
 typedef void (*F)(double t, double y[], double ys[], double f[]);
 
