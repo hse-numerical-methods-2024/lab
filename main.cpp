@@ -1,6 +1,3 @@
-﻿// prog1.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-//
-
 #include <iostream>
 #include <fstream>
 #include <cmath>
@@ -17,7 +14,7 @@ const double v0 = std::sqrt(mu / a); // km/s
 
 const double tau = 1.0; // Шаг по времени
 
-const double T = 80000; // Конечное время (со значением 3.1E7 с семинара -- не дождался окончания)
+const double T = 80000; // Конечное время
 
 typedef void (*F)(double t, double y[], double ys[], double f[]);
 
