@@ -1,1 +1,1 @@
-hse_numerical_methods_2024
+calculation Exp(x) using Pade method
