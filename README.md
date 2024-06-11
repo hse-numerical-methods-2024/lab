@@ -1,1 +1,1 @@
-hse_numerical_methods_2024
+atmosphere lab(preparations for the next one)
