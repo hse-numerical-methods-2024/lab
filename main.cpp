@@ -1,5 +1,5 @@
 #include <cmath>
-//#include "AAD.cpp"
+#include "AAD.cpp"
 
 const double h = 0.0001;
 const double n = 2.0;
@@ -20,10 +20,6 @@ enum class WhichD : int {
     YY
 };
 
-double F(double x, double y) {
-//    some func
-//    return func;
-}
 
 template<WhichD W, DiffMethod M, typename Callable>
 double Differentiator(Callable const &F, double x, double y, double h1) {
@@ -101,6 +97,20 @@ double Differentiator(Callable const &F, double x, double y, double h1) {
         double func_dif = (n * n * n * n * d5_2 - d5_1) / (n * n * n * n - 1); //not sure about this
         return func_dif;
     } else if constexpr (M == DiffMethod::FwdAAD) {
-        //func for AAD method
+        AAD22 X = AAD22::X(x);
+        AAD22 Y = AAD22::Y(y);
+        AAD22 Res = F(X, Y);
+
+        if (W == WhichD::X) {
+            return Res.getM_d1(0);
+        } else if (W == WhichD::Y) {
+            return Res.getM_d1(1);
+        } else if (W == WhichD::XX) {
+            return Res.getM_d2(0);
+        } else if (W == WhichD::YY) {
+            return Res.getM_d2(1);
+        } else if (W == WhichD::XY) {
+            return Res.getM_d2(2);
+        }
     }
-    }
+}
